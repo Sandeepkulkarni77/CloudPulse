@@ -123,42 +123,13 @@ CloudPulse/
 
 # 🔄 CI/CD Workflow
 
-```text
-Code Push
-     │
-     ▼
-GitHub Actions
-     │
-     ├── Checkout Repository
-     ├── Setup Python
-     ├── Install Dependencies
-     ├── Run Pytest
-     ├── Login to Docker Hub
-     ├── Build Docker Image
-     └── Push Image to Docker Hub
-```
+<img width="1774" height="887" alt="ChatGPT Image Sep 28, 2026, 06_56_08 PM" src="https://github.com/user-attachments/assets/36f326f9-5b16-4748-b19d-f7c95544956e" />
 
 ---
 
 # ☸ Kubernetes Architecture
 
-```text
-                Ingress
-                    │
-                    ▼
-             Service (ClusterIP)
-                    │
-                    ▼
-               Deployment
-                    │
-          ┌─────────┴─────────┐
-          ▼                   ▼
-       Pod-1               Pod-2
-          │                   │
-          └─────────┬─────────┘
-                    ▼
-          ConfigMap + Secret
-```
+<img width="1024" height="1536" alt="ChatGPT Image Sep 28, 2026, 07_00_37 PM" src="https://github.com/user-attachments/assets/ad0329e9-69b1-4b8c-8333-62ba5ba86807" />
 
 ---
 
