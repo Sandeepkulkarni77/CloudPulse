@@ -46,46 +46,8 @@ It is designed as a portfolio project for aspiring **DevOps and Cloud Engineers*
 
 # 🏗 Architecture
 
-```text
-                    Developer
-                         │
-                         ▼
-                  GitHub Repository
-                         │
-                         ▼
-                 GitHub Actions CI/CD
-                         │
-       ┌─────────────────┴─────────────────┐
-       ▼                                   ▼
- Run Automated Tests              Build Docker Image
-       │                                   │
-       └─────────────────┬─────────────────┘
-                         ▼
-                Push Image to Docker Hub
-                         │
-                         ▼
-                Kubernetes Deployment
-                         │
-          ┌──────────────┴──────────────┐
-          ▼                             ▼
-     ConfigMap                     Secret
-          │                             │
-          └──────────────┬──────────────┘
-                         ▼
-                 CloudPulse Pods
-                         │
-                         ▼
-                   Kubernetes Service
-                         │
-                         ▼
-                       Ingress
-                         │
-                         ▼
-                    Prometheus
-                         │
-                         ▼
-                      Grafana
-```
+<img width="1536" height="1024" alt="ChatGPT Image Sep 28, 2026, 03_40_23 PM" src="https://github.com/user-attachments/assets/fda5c294-b097-49bf-a1c1-58668fe6c068" />
+
 
 ---
 
