@@ -310,7 +310,7 @@ docker run -p 8000:8000 cloudpulse
 
 ---
 
-# 📸 Screenshots
+#  Screenshots
 
 ## Swagger UI
 
@@ -336,14 +336,14 @@ docker run -p 8000:8000 cloudpulse
 
 ---
 
-# 🚀 Future Improvements
+#  Future Improvements
 
 - Deploy on AWS EKS
 - Infrastructure as Code with Terraform
 
 ---
 
-# 🎯 Learning Outcomes
+#  Learning Outcomes
 
 This project demonstrates practical experience with:
 
@@ -359,9 +359,3 @@ This project demonstrates practical experience with:
 - Production-style DevOps Workflow
 
 ---
-
-# 👨‍💻 Author
-
-**Tanmay Singh**
-
-GitHub: https://github.com/Tanmay-hue
