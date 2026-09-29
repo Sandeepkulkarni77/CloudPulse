@@ -57,7 +57,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: tanmay322/cloudpulse
+          images: sandeepkulkarn/cloudpulse
           tags: |
             type=raw,value=latest
             type=sha
