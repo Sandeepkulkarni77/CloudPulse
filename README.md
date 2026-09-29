@@ -277,6 +277,12 @@ CloudPulse exposes application metrics through the `/metrics` endpoint. Promethe
 
 ---
 
+## Grafana Monitoring
+
+<img width="1915" height="926" alt="image" src="https://github.com/user-attachments/assets/54b379e8-bf10-4224-95a3-e2b1b52d455f" />
+
+---
+
 #  Future Improvements
 
 - Deploy on AWS EKS
