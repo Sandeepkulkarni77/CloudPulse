@@ -269,6 +269,14 @@ docker run -p 8000:8000 cloudpulse
 
 ---
 
+## Prometheus Monitoring
+
+CloudPulse exposes application metrics through the `/metrics` endpoint. Prometheus is configured to scrape the CloudPulse container every 15 seconds.
+
+<img width="1918" height="932" alt="image" src="https://github.com/user-attachments/assets/0a3703e8-0ba6-4c86-a9d5-5039033fc472" />
+
+---
+
 #  Future Improvements
 
 - Deploy on AWS EKS
