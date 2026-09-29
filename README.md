@@ -253,7 +253,7 @@ docker run -p 8000:8000 cloudpulse
 
 ## GitHub Actions (Successful CI/CD)
 
-![GitHub Actions](https://github.com/Tanmay-hue/CloudPulse/blob/main/images/github-actions.png)
+<img width="1918" height="932" alt="image" src="https://github.com/user-attachments/assets/28883184-5baa-4825-824e-4925c626e232" />
 
 ---
 
