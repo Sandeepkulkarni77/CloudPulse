@@ -259,7 +259,7 @@ docker run -p 8000:8000 cloudpulse
 
 ## Docker Hub Repository
 
-![Docker Hub](https://github.com/Tanmay-hue/CloudPulse/blob/main/images/dockerhub.png)
+<img width="937" height="592" alt="image" src="https://github.com/user-attachments/assets/13f62f9f-60c7-448c-b704-5b2eaf436b21" />
 
 ---
 
