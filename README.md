@@ -247,7 +247,7 @@ docker run -p 8000:8000 cloudpulse
 
 ## Swagger UI
 
-![Swagger UI](https://github.com/Tanmay-hue/CloudPulse/blob/main/images/swagger-ui.png)
+<img width="1918" height="932" alt="image" src="https://github.com/user-attachments/assets/d6fd232a-05db-4233-b0b6-843f63ab477f" />
 
 ---
 
