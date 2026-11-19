@@ -62,7 +62,7 @@ class User(BaseModel):
 
 users: List[User] = []
 
-
+# Root endpoint providing CloudPulse application information.
 @app.get("/")
 def home():
 
