@@ -172,9 +172,6 @@ The Kubernetes configuration includes the following resources:
 - **Resource Requests and Limits:** Define the CPU and memory resources required and permitted for containers.
 - **Horizontal Pod Autoscaler (HPA):** Configures automatic scaling of application replicas based on resource utilization.
 
-### Kubernetes Manifests
-
-All Kubernetes YAML configuration files are maintained in the `k8s/` directory, keeping deployment and infrastructure configurations separate from the application source code.
 ---
 
 ## Monitoring and Observability
