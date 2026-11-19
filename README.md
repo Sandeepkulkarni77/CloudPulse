@@ -12,63 +12,73 @@
 
 </p>
 
-## 📖 Project Overview
+##  Project Overview
 
-CloudPulse is an **end-to-end DevOps project** built to demonstrate modern software delivery practices using **FastAPI, Docker, GitHub Actions, Kubernetes, Prometheus, and Grafana**.
+CloudPulse is an end-to-end DevOps project that demonstrates the process of building, containerizing, deploying, and monitoring a Python-based REST API.
 
-The project showcases how an application moves from development to deployment with automated testing, containerization, continuous integration, Kubernetes deployment configuration, and monitoring.
+The application is developed using FastAPI and containerized using Docker. GitHub Actions automates application testing and Docker image publishing, while Kubernetes manages application deployment and orchestration.
 
-It is designed as a portfolio project for aspiring **DevOps and Cloud Engineers**.
+Prometheus and Grafana are integrated to collect and visualize application metrics, providing visibility into application performance and health.
 
----
-
-# ✨ Features
-
-- REST API built with FastAPI
-- Dockerized application
-- Automated CI/CD with GitHub Actions
-- Automated unit testing using Pytest
-- Docker Hub image publishing
-- Kubernetes Deployment
-- Kubernetes Service
-- Kubernetes Namespace
-- ConfigMap & Secret
-- Horizontal Pod Autoscaler (HPA)
-- Ingress Configuration
-- Resource Requests & Limits
-- Readiness & Liveness Probes
-- Graceful Startup & Shutdown
-- Prometheus Metrics Endpoint
-- Grafana Dashboard Configuration
-- Structured Logging
+The project brings together application development, CI/CD automation, container orchestration, and monitoring in a single workflow.
 
 ---
 
-# 🏗 Architecture
+## Features
+
+**Application Development**
+- REST API developed using FastAPI.
+- Automated unit testing using Pytest.
+- Health check, readiness, and metrics endpoints.
+- Structured application logging.
+
+**Containerization and CI/CD**
+- Application containerization using Docker.
+- Automated CI/CD pipeline using GitHub Actions.
+- Automated testing and Docker image building.
+- Docker image publishing to Docker Hub.
+
+**Kubernetes Deployment**
+- Kubernetes Deployments and Services.
+- Namespace-based resource organization.
+- ConfigMaps and Secrets for configuration management.
+- Horizontal Pod Autoscaler (HPA) configuration.
+- Ingress configuration for external access.
+- CPU and memory requests and limits.
+- Readiness and liveness probes.
+- Graceful application startup and shutdown.
+
+**Monitoring**
+- Prometheus metrics endpoint.
+- Prometheus configuration for metrics collection.
+- Grafana dashboard configuration for metrics visualization.
+
+---
+
+#  Architecture
 
 <img width="1536" height="1024" alt="ChatGPT Image Sep 28, 2026, 03_40_23 PM" src="https://github.com/user-attachments/assets/fda5c294-b097-49bf-a1c1-58668fe6c068" />
 
-
 ---
 
-# 🛠 Tech Stack
+## Tech Stack
 
 | Category | Technology |
-|----------|------------|
-| Language | Python 3.13 |
+|---|---|
+| Programming Language | Python 3.13 |
 | Framework | FastAPI |
 | Testing | Pytest |
 | Containerization | Docker |
 | CI/CD | GitHub Actions |
-| Registry | Docker Hub |
-| Orchestration | Kubernetes |
-| Monitoring | Prometheus |
-| Visualization | Grafana |
+| Container Registry | Docker Hub |
+| Container Orchestration | Kubernetes |
+| Metrics Collection | Prometheus |
+| Metrics Visualization | Grafana |
 | Version Control | Git & GitHub |
 
 ---
 
-# 📂 Project Structure
+## Project Structure
 
 ```text
 CloudPulse/
@@ -107,8 +117,6 @@ CloudPulse/
 │
 ├── images/
 │
-├── tests/
-│
 ├── .github/
 │   └── workflows/
 │       └── ci.yml
@@ -118,24 +126,71 @@ CloudPulse/
 ├── pytest.ini
 └── README.md
 ```
-
 ---
 
-# 🔄 CI/CD Workflow
+## CI/CD Workflow
 
 <img width="1774" height="887" alt="ChatGPT Image Sep 28, 2026, 06_56_08 PM" src="https://github.com/user-attachments/assets/36f326f9-5b16-4748-b19d-f7c95544956e" />
 
+CloudPulse uses GitHub Actions to automate the application testing, Docker image build, and publishing process.
+
+The workflow is triggered by repository changes and performs the following steps:
+
+1. **Source Checkout:** Retrieves the latest application code from GitHub.
+2. **Dependency Installation:** Installs the required Python dependencies.
+3. **Automated Testing:** Runs the test suite using Pytest to validate application functionality.
+4. **Docker Image Build:** Builds the application Docker image using the Dockerfile.
+5. **Image Publishing:** Pushes the successfully built image to Docker Hub for deployment.
+
+This workflow reduces manual steps and provides a repeatable process for building and publishing application images.
+
 ---
 
-# ☸ Kubernetes Architecture
+## Kubernetes Architecture
 
 <img width="1024" height="1536" alt="ChatGPT Image Sep 28, 2026, 07_00_37 PM" src="https://github.com/user-attachments/assets/ad0329e9-69b1-4b8c-8333-62ba5ba86807" />
 
+CloudPulse uses Kubernetes to deploy and manage the containerized application.
+
+The Kubernetes configuration includes:
+
+Namespace: Organizes application resources.
+
+Deployment: Manages application pods and replicas.
+
+Service: Provides stable internal network access to the application.
+
+ConfigMap and Secret: Manage application configuration and sensitive values.
+
+Ingress: Defines external HTTP/HTTPS routing.
+
+Health Probes: Readiness and liveness checks help Kubernetes manage application health.
+
+Resource Management: CPU and memory requests and limits define resource requirements.
+
+Horizontal Pod Autoscaler: Configures automatic replica scaling based on resource utilization.
+
+The Kubernetes manifests are maintained separately in the k8s/ directory.
 ---
 
-# 📊 Monitoring
+## Monitoring and Observability
 
-CloudPulse exposes application metrics through the `/metrics` endpoint.
+CloudPulse exposes application metrics through the `/metrics` endpoint, allowing Prometheus to collect metrics from the application.
+
+Prometheus is configured to scrape the application metrics at a defined interval. Grafana uses Prometheus as a data source to visualize the collected metrics through dashboards.
+
+### Monitoring Components
+
+- **Prometheus:** Collects and stores application metrics.
+- **Grafana:** Visualizes metrics through dashboards.
+
+### Application Endpoints
+
+| Endpoint | Purpose |
+|---|---|
+| `/health` | Application liveness check |
+| `/ready` | Application readiness check |
+| `/metrics` | Exposes metrics for Prometheus scraping |
 
 ### Monitoring Stack
 
@@ -152,94 +207,275 @@ CloudPulse exposes application metrics through the `/metrics` endpoint.
 
 ---
 
-# 📌 API Endpoints
+## API Endpoints
+
+CloudPulse provides the following REST API endpoints:
 
 | Method | Endpoint | Description |
-|---------|----------|-------------|
-| GET | `/` | Home |
-| GET | `/health` | Health Check |
-| GET | `/ready` | Readiness Check |
-| GET | `/version` | Application Version |
-| GET | `/users` | Get Users |
-| POST | `/users` | Create User |
-| GET | `/metrics` | Prometheus Metrics |
+|---|---|---|
+| GET | `/` | Returns the application home response |
+| GET | `/health` | Checks application health |
+| GET | `/ready` | Checks application readiness |
+| GET | `/version` | Returns the application version |
+| GET | `/users` | Retrieves the list of users |
+| POST | `/users` | Creates a new user |
+| GET | `/metrics` | Exposes application metrics for Prometheus |
 
 ---
 
-# ▶ Running Locally
+## Running Locally
 
-## Clone Repository
+Follow these steps to set up and run CloudPulse on your local machine.
+
+### Prerequisites
+
+Make sure the following tools are installed:
+
+- Python 3.13
+- Git
+- pip
+
+### 1. Clone the Repository
+
+Clone the repository and navigate to the project directory.
 
 ```bash
 git clone https://github.com/Tanmay-hue/CloudPulse.git
+
 cd CloudPulse
 ```
 
----
+### 2. Create a Virtual Environment
 
-## Create Virtual Environment
-
-Windows
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-```
-
-Linux/macOS
+Create an isolated Python environment for the project.
 
 ```bash
 python3 -m venv .venv
+```
+
+Activate the virtual environment:
+
+**Linux/macOS**
+
+```bash
 source .venv/bin/activate
 ```
 
----
+**Windows**
 
-## Install Dependencies
+```powershell
+.venv\Scripts\activate
+```
+
+Verify the Python version:
 
 ```bash
+python --version
+```
+
+### 3. Install Dependencies
+
+Upgrade pip and install the project dependencies.
+
+```bash
+python -m pip install --upgrade pip
+
 pip install -r app/requirements.txt
 ```
 
----
+### 4. Start the Application
 
-## Start Application
+Start the FastAPI application using Uvicorn.
 
 ```bash
 uvicorn app.main:app --reload
 ```
 
----
+The application will start on:
 
-## Swagger Documentation
-
+```text
+http://127.0.0.1:8000
 ```
+
+### 5. Access the API Documentation
+
+FastAPI automatically provides interactive API documentation through Swagger UI.
+
+Open the following URL in your browser:
+
+```text
 http://127.0.0.1:8000/docs
 ```
 
----
+Use Swagger UI to explore and test the available API endpoints.
 
-## Run Tests
+### 6. Verify Application Endpoints
+
+Test the application using curl:
+
+**Home endpoint**
+
+```bash
+curl http://127.0.0.1:8000/
+```
+
+**Health check**
+
+```bash
+curl http://127.0.0.1:8000/health
+```
+
+**Readiness check**
+
+```bash
+curl http://127.0.0.1:8000/ready
+```
+
+**Application version**
+
+```bash
+curl http://127.0.0.1:8000/version
+```
+
+**Prometheus metrics**
+
+```bash
+curl http://127.0.0.1:8000/metrics
+```
+
+### 7. Run Automated Tests
+
+Execute the test suite using Pytest:
 
 ```bash
 pytest
 ```
 
+Pytest runs the available application tests and reports their results in the terminal.
+
+### 8. Stop the Application
+
+Press `Ctrl + C` in the terminal to stop the Uvicorn server.
+
+Deactivate the virtual environment:
+
+```bash
+deactivate
+```
+
 ---
 
-# 🐳 Docker
+## Running with Docker
 
-Build Image
+Docker is used to package the CloudPulse application and its dependencies into a container image. This allows the application to run consistently across different environments without requiring Python and its dependencies to be installed directly on the host machine.
 
-```bash
-docker build -t cloudpulse .
-```
+### 1. Build the Docker Image
 
-Run Container
+Make sure Docker is installed and running. From the root directory of the project, execute:
 
 ```bash
-docker run -p 8000:8000 cloudpulse
+docker build -t cloudpulse:latest .
 ```
+
+**Command explanation:**
+- `docker build` builds an image using the instructions in the Dockerfile.
+- `-t cloudpulse:latest` assigns the image name `cloudpulse` and tag `latest`.
+- `.` specifies the current directory as the build context.
+
+Verify that the image was created:
+
+```bash
+docker images
+```
+
+### 2. Run the Docker Container
+
+Start a container from the newly created image:
+
+```bash
+docker run -d \
+  --name cloudpulse-container \
+  -p 8000:8000 \
+  cloudpulse:latest
+```
+
+**Command explanation:**
+- `-d` runs the container in detached mode, in the background.
+- `--name` assigns a name to the container.
+- `-p 8000:8000` maps port 8000 on the host machine to port 8000 inside the container.
+- `cloudpulse:latest` specifies the image used to create the container.
+
+### 3. Verify the Running Container
+
+Check whether the container is running:
+
+```bash
+docker ps
+```
+
+To view all containers, including stopped ones:
+
+```bash
+docker ps -a
+```
+
+### 4. Access the Application
+
+Once the container is running, access the application using:
+
+- Application: `http://localhost:8000`
+- Swagger UI: `http://localhost:8000/docs`
+- Health endpoint: `http://localhost:8000/health`
+
+You can also test the health endpoint from the terminal:
+
+```bash
+curl http://localhost:8000/health
+```
+
+### 5. View Container Logs
+
+To inspect application logs:
+
+```bash
+docker logs cloudpulse-container
+```
+
+To continuously follow the logs:
+
+```bash
+docker logs -f cloudpulse-container
+```
+
+### 6. Monitor Container Resource Usage
+
+View the container's live CPU and memory usage:
+
+```bash
+docker stats cloudpulse-container
+```
+
+### 7. Stop and Remove the Container
+
+Stop the running container:
+
+```bash
+docker stop cloudpulse-container
+```
+
+Remove the stopped container:
+
+```bash
+docker rm cloudpulse-container
+```
+
+To remove the Docker image:
+
+```bash
+docker rmi cloudpulse:latest
+```
+
+**Note:** Removing a container does not automatically remove the image. The image can be reused to create another container.
 
 ---
 
@@ -247,11 +483,15 @@ docker run -p 8000:8000 cloudpulse
 
 ## Swagger UI
 
+The Swagger UI provides an interactive interface for exploring and testing the CloudPulse REST API endpoints.
+
 <img width="1918" height="932" alt="image" src="https://github.com/user-attachments/assets/d6fd232a-05db-4233-b0b6-843f63ab477f" />
 
 ---
 
 ## GitHub Actions (Successful CI/CD)
+
+The GitHub Actions workflow automates the CI/CD process by running application tests, building the Docker image, and publishing the image to Docker Hub.
 
 <img width="1918" height="932" alt="image" src="https://github.com/user-attachments/assets/28883184-5baa-4825-824e-4925c626e232" />
 
@@ -259,11 +499,15 @@ docker run -p 8000:8000 cloudpulse
 
 ## Docker Hub Repository
 
+The Docker Hub repository stores the CloudPulse container image published by the GitHub Actions CI/CD workflow, making it available for deployment and reuse.
+
 <img width="937" height="592" alt="image" src="https://github.com/user-attachments/assets/13f62f9f-60c7-448c-b704-5b2eaf436b21" />
 
 ---
 
 ## Project Structure
+
+The project follows a structured directory layout that separates application code, automated tests, Kubernetes manifests, monitoring configurations, and CI/CD workflow files.
 
 ![Project Structure](https://github.com/Tanmay-hue/CloudPulse/blob/main/images/project-structure.png)
 
@@ -271,7 +515,7 @@ docker run -p 8000:8000 cloudpulse
 
 ## Prometheus Monitoring
 
-CloudPulse exposes application metrics through the `/metrics` endpoint. Prometheus is configured to scrape the CloudPulse container every 15 seconds.
+Prometheus collects application metrics exposed by CloudPulse through the `/metrics` endpoint. It is configured to scrape the application at 15-second intervals, allowing its metrics to be monitored over time.
 
 <img width="1918" height="932" alt="image" src="https://github.com/user-attachments/assets/0a3703e8-0ba6-4c86-a9d5-5039033fc472" />
 
@@ -279,30 +523,25 @@ CloudPulse exposes application metrics through the `/metrics` endpoint. Promethe
 
 ## Grafana Monitoring
 
+Grafana is used to visualize the application metrics collected by Prometheus. The dashboard provides a visual overview of CloudPulse's monitoring data, helping track application performance and health.
+
 <img width="1915" height="926" alt="image" src="https://github.com/user-attachments/assets/54b379e8-bf10-4224-95a3-e2b1b52d455f" />
 
 ---
 
 #  Future Improvements
 
-- Deploy on AWS EKS
-- Infrastructure as Code with Terraform
+- **AWS EKS Deployment:** Deploy CloudPulse on Amazon Elastic Kubernetes Service (EKS) to explore managed Kubernetes in AWS.
+- **Infrastructure as Code:** Use Terraform to provision and manage cloud infrastructure in a repeatable and automated way.
 
 ---
 
-#  Learning Outcomes
+# Conclusion
 
-This project demonstrates practical experience with:
+CloudPulse brings together application development, containerization, CI/CD automation, Kubernetes orchestration, and monitoring into a single DevOps project.
 
-- REST API Development
-- Docker Containerization
-- CI/CD Pipeline Automation
-- GitHub Actions
-- Docker Hub Integration
-- Kubernetes Resource Management
-- Health & Readiness Probes
-- Prometheus Monitoring
-- Grafana Configuration
-- Production-style DevOps Workflow
+Building this project helped me gain hands-on experience with tools and workflows used in modern DevOps environments. It also strengthened my understanding of how applications are built, tested, packaged, deployed, and monitored.
+
+This project is an ongoing learning journey, and I plan to extend it further by exploring AWS EKS and Infrastructure as Code using Terraform.
 
 ---
