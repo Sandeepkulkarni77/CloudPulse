@@ -145,32 +145,36 @@ The workflow is triggered by repository changes and performs the following steps
 This workflow reduces manual steps and provides a repeatable process for building and publishing application images.
 
 ---
+## Kubernetes Deployment
 
-## Kubernetes Architecture
+CloudPulse uses Kubernetes to deploy and manage the containerized application. The Kubernetes manifests are maintained separately in the `k8s/` directory.
+
+### Kubernetes Architecture
 
 <img width="1024" height="1536" alt="ChatGPT Image Sep 28, 2026, 07_00_37 PM" src="https://github.com/user-attachments/assets/ad0329e9-69b1-4b8c-8333-62ba5ba86807" />
 
-CloudPulse uses Kubernetes to deploy and manage the containerized application.
+### Kubernetes Resources
 
-The Kubernetes configuration includes:
+The Kubernetes configuration includes the following resources:
 
-Namespace: Organizes application resources.
+| Resource | Purpose |
+|---|---|
+| **Namespace** | Organizes and isolates application resources. |
+| **Deployment** | Manages application Pods and replicas. |
+| **Service** | Provides stable internal network access to the application. |
+| **ConfigMap** | Stores application configuration. |
+| **Secret** | Manages sensitive configuration values. |
+| **Ingress** | Defines external HTTP/HTTPS routing to the application. |
 
-Deployment: Manages application pods and replicas.
+### Application Health and Resource Management
 
-Service: Provides stable internal network access to the application.
+- **Health Probes:** Readiness and liveness probes help Kubernetes monitor application health and manage container restarts.
+- **Resource Requests and Limits:** Define the CPU and memory resources required and permitted for containers.
+- **Horizontal Pod Autoscaler (HPA):** Configures automatic scaling of application replicas based on resource utilization.
 
-ConfigMap and Secret: Manage application configuration and sensitive values.
+### Kubernetes Manifests
 
-Ingress: Defines external HTTP/HTTPS routing.
-
-Health Probes: Readiness and liveness checks help Kubernetes manage application health.
-
-Resource Management: CPU and memory requests and limits define resource requirements.
-
-Horizontal Pod Autoscaler: Configures automatic replica scaling based on resource utilization.
-
-The Kubernetes manifests are maintained separately in the k8s/ directory.
+All Kubernetes YAML configuration files are maintained in the `k8s/` directory, keeping deployment and infrastructure configurations separate from the application source code.
 ---
 
 ## Monitoring and Observability
