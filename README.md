@@ -209,35 +209,6 @@ Prometheus is configured to scrape the application metrics at a defined interval
 - **Prometheus:** Collects and stores application metrics.
 - **Grafana:** Visualizes metrics through dashboards.
 
-### Monitoring Stack
-
-- Prometheus
-- Grafana
-
-### Health Endpoints
-
-| Endpoint | Purpose |
-|----------|----------|
-| `/health` | Liveness Check |
-| `/ready` | Readiness Check |
-| `/metrics` | Prometheus Metrics |
-
----
-
-## API Endpoints
-
-CloudPulse provides the following REST API endpoints:
-
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/` | Returns the application home response |
-| GET | `/health` | Checks application health |
-| GET | `/ready` | Checks application readiness |
-| GET | `/version` | Returns the application version |
-| GET | `/users` | Retrieves the list of users |
-| POST | `/users` | Creates a new user |
-| GET | `/metrics` | Exposes application metrics for Prometheus |
-
 ### Prometheus Setup
 
 Deploy Prometheus using the Kubernetes manifests:
@@ -285,6 +256,32 @@ Open: `http://localhost:3000`
 
 4. Click **Save & Test** to verify the connection.
 5. Create dashboards using PromQL queries to visualize CloudPulse metrics.
+---
+
+### Health Endpoints
+
+| Endpoint | Purpose |
+|----------|----------|
+| `/health` | Liveness Check |
+| `/ready` | Readiness Check |
+| `/metrics` | Prometheus Metrics |
+
+---
+
+## API Endpoints
+
+CloudPulse provides the following REST API endpoints:
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/` | Returns the application home response |
+| GET | `/health` | Checks application health |
+| GET | `/ready` | Checks application readiness |
+| GET | `/version` | Returns the application version |
+| GET | `/users` | Retrieves the list of users |
+| POST | `/users` | Creates a new user |
+| GET | `/metrics` | Exposes application metrics for Prometheus |
+
 ---
 
 ## Running Locally
