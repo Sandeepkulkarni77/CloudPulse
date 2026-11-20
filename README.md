@@ -526,7 +526,7 @@ CloudPulse uses **Prometheus** for metrics collection and **Grafana** for visual
 
 Prometheus successfully scrapes metrics exposed by the CloudPulse application.
 
-<img width="1920" height="931" alt="image" src="https://github.com/user-attachments/assets/6c540b4b-6c05-437e-a2a3-731ca277ec44" />
+<img width="1916" height="925" alt="image" src="https://github.com/user-attachments/assets/ec395fd0-ab22-4bd2-a370-2767955b67b8" />
 
 ---
 
