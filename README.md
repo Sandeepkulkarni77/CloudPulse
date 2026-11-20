@@ -172,6 +172,30 @@ The Kubernetes configuration includes the following resources:
 - **Resource Requests and Limits:** Define the CPU and memory resources required and permitted for containers.
 - **Horizontal Pod Autoscaler (HPA):** Configures automatic scaling of application replicas based on resource utilization.
 
+### Deploying CloudPulse
+
+Apply the Kubernetes manifests to deploy CloudPulse:
+
+```bash
+# Create namespace
+kubectl apply -f k8s/namespace.yaml
+
+# Create application configuration
+kubectl apply -f k8s/configmap.yaml
+kubectl apply -f k8s/secret.yaml
+
+# Deploy application
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+```
+
+Verify the deployment:
+
+```bash
+kubectl get pods -n cloudpulse
+kubectl get svc -n cloudpulse
+```
+
 ---
 
 ## Monitoring and Observability
@@ -184,14 +208,6 @@ Prometheus is configured to scrape the application metrics at a defined interval
 
 - **Prometheus:** Collects and stores application metrics.
 - **Grafana:** Visualizes metrics through dashboards.
-
-### Application Endpoints
-
-| Endpoint | Purpose |
-|---|---|
-| `/health` | Application liveness check |
-| `/ready` | Application readiness check |
-| `/metrics` | Exposes metrics for Prometheus scraping |
 
 ### Monitoring Stack
 
@@ -222,6 +238,53 @@ CloudPulse provides the following REST API endpoints:
 | POST | `/users` | Creates a new user |
 | GET | `/metrics` | Exposes application metrics for Prometheus |
 
+### Prometheus Setup
+
+Deploy Prometheus using the Kubernetes manifests:
+
+```bash
+kubectl apply -f k8s/prometheus-configmap.yaml
+kubectl apply -f k8s/prometheus-deployment.yaml
+kubectl apply -f k8s/prometheus-service.yaml
+```
+
+Access the Prometheus UI:
+
+```bash
+kubectl port-forward svc/prometheus-service 9090:9090 -n cloudpulse
+```
+
+Open: `http://localhost:9090`
+
+Verify the CloudPulse target under **Status → Targets**. The target should show `UP`.
+
+### Grafana Setup
+
+Deploy Grafana:
+
+```bash
+kubectl apply -f k8s/grafana-deployment.yaml
+kubectl apply -f k8s/grafana-service.yaml
+```
+
+Access the Grafana UI:
+
+```bash
+kubectl port-forward svc/grafana-service 3000:3000 -n cloudpulse
+```
+
+Open: `http://localhost:3000`
+
+### Connecting Prometheus to Grafana
+
+1. Navigate to **Connections → Data Sources** in Grafana.
+2. Add Prometheus as a data source.
+3. Set the Prometheus server URL:
+
+   `http://prometheus-service:9090`
+
+4. Click **Save & Test** to verify the connection.
+5. Create dashboards using PromQL queries to visualize CloudPulse metrics.
 ---
 
 ## Running Locally
