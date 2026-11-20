@@ -34,7 +34,7 @@ spec:
 
       - name: cloudpulse
 
-        image: tanmay322/cloudpulse:latest
+        image: sandeepkulkarn/cloudpulse:latest
 
         imagePullPolicy: Always
 
