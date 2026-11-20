@@ -514,19 +514,27 @@ The project follows a structured directory layout that separates application cod
 
 ---
 
-## Prometheus Monitoring
+## Monitoring
 
-Prometheus collects application metrics exposed by CloudPulse through the `/metrics` endpoint. It is configured to scrape the application at 15-second intervals, allowing its metrics to be monitored over time.
+CloudPulse uses **Prometheus** for metrics collection and **Grafana** for visualization.
 
-<img width="1918" height="932" alt="image" src="https://github.com/user-attachments/assets/0a3703e8-0ba6-4c86-a9d5-5039033fc472" />
+- Prometheus scrapes application metrics from the `/metrics` endpoint at 15-second intervals.
+- Grafana uses Prometheus as its data source to visualize application and system metrics.
+- The monitoring setup provides visibility into application availability, HTTP request metrics, CPU utilization, and memory consumption.
+
+## Prometheus Metrics
+
+Prometheus successfully scrapes metrics exposed by the CloudPulse application.
+
+<img width="1920" height="931" alt="image" src="https://github.com/user-attachments/assets/6c540b4b-6c05-437e-a2a3-731ca277ec44" />
 
 ---
 
-## Grafana Monitoring
+## Grafana Dashboard
 
-Grafana is used to visualize the application metrics collected by Prometheus. The dashboard provides a visual overview of CloudPulse's monitoring data, helping track application performance and health.
+Grafana visualizes the metrics collected by Prometheus, providing insights into application requests and resource utilization.
 
-<img width="1915" height="926" alt="image" src="https://github.com/user-attachments/assets/54b379e8-bf10-4224-95a3-e2b1b52d455f" />
+<img width="1920" height="931" alt="image" src="https://github.com/user-attachments/assets/92694f46-8981-47af-a564-72feea50da3e" />
 
 ---
 
