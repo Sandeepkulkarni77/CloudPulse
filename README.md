@@ -566,14 +566,6 @@ The Docker Hub repository stores the CloudPulse container image published by the
 
 ---
 
-## Project Structure
-
-The project follows a structured directory layout that separates application code, automated tests, Kubernetes manifests, monitoring configurations, and CI/CD workflow files.
-
-![Project Structure](https://github.com/Tanmay-hue/CloudPulse/blob/main/images/project-structure.png)
-
----
-
 ## Monitoring
 
 CloudPulse uses **Prometheus** for metrics collection and **Grafana** for visualization.
