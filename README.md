@@ -588,6 +588,18 @@ Grafana visualizes the metrics collected by Prometheus, providing insights into 
 
 <img width="1920" height="931" alt="image" src="https://github.com/user-attachments/assets/92694f46-8981-47af-a564-72feea50da3e" />
 
+
+## CPU Utilization
+
+CloudPulse application CPU consumption is monitored using
+Prometheus and visualized through Grafana.
+
+**PromQL Query:**
+
+`rate(process_cpu_seconds_total[1m]) * 100`
+
+<img width="1288" height="885" alt="image" src="https://github.com/user-attachments/assets/e5495eea-2100-4c09-a387-ba97467d5b41" />
+
 ---
 
 #  Future Improvements
