@@ -57,7 +57,7 @@ The project brings together application development, CI/CD automation, container
 
 #  Architecture
 
-<img width="1536" height="1024" alt="ChatGPT Image Sep 28, 2026, 03_40_23 PM" src="https://github.com/user-attachments/assets/fda5c294-b097-49bf-a1c1-58668fe6c068" />
+<img width="2560" height="1880" alt="architecture" src="https://github.com/user-attachments/assets/a2d18920-0e34-4e63-b81c-4f2a0f041def" />
 
 ---
 
