@@ -4,7 +4,6 @@
 
 **An end-to-end DevOps project that builds, containerizes, deploys, and monitors a Python REST API.**
 
-[![CI](https://github.com/Tanmay-hue/CloudPulse/actions/workflows/ci.yml/badge.svg)](https://github.com/Tanmay-hue/CloudPulse/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.13-3776AB?style=flat-square&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-009688?style=flat-square&logo=fastapi&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Containerization-2496ED?style=flat-square&logo=docker&logoColor=white)
@@ -185,13 +184,18 @@ CloudPulse/
 
 ---
 
-## Prerequisites
+### Prerequisites
 
-| To... | You need |
+Ensure the following tools and environments are available before getting started:
+
+| Task | Requirements |
 |---|---|
-| Run locally | Python 3.13, Git, and pip |
-| Run with Docker | Docker, installed and running |
-| Deploy on Kubernetes | `kubectl` and access to a Kubernetes cluster |
+| **Run locally** | Python 3.13, pip, and Git (for cloning the repository) |
+| **Build and run with Docker** | Docker Engine and Docker CLI, with the Docker daemon running |
+| **Deploy on Kubernetes** | A Kubernetes cluster (such as Minikube) and `kubectl` configured to access it |
+| **Monitoring and Observability** | Prometheus and Grafana, deployed using the provided Kubernetes manifests |
+
+**Note:** Prometheus and Grafana are deployed within the Kubernetes cluster using the manifests in the `k8s/` directory. Separate local installations are not required.
 
 ---
 
