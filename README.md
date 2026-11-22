@@ -584,9 +584,15 @@ Prometheus successfully scrapes metrics exposed by the CloudPulse application.
 
 ## Grafana Dashboard
 
-Grafana visualizes the metrics collected by Prometheus, providing insights into application requests and resource utilization.
+Application Availability
 
-<img width="1920" height="931" alt="image" src="https://github.com/user-attachments/assets/92694f46-8981-47af-a564-72feea50da3e" />
+Prometheus monitors CloudPulse application availability by periodically scraping its /metrics endpoint. Grafana visualizes the availability status over time using the Prometheus up metric.
+
+PromQL Query: `up{job="cloudpulse"}`
+
+A value of 1 indicates that Prometheus successfully scraped the application, while 0 indicates a failed scrape.
+
+<img width="1246" height="822" alt="image" src="https://github.com/user-attachments/assets/14f38346-3b92-402c-ab7b-c70dff446cac" />
 
 
 ## CPU Utilization
@@ -594,9 +600,7 @@ Grafana visualizes the metrics collected by Prometheus, providing insights into 
 CloudPulse application CPU consumption is monitored using
 Prometheus and visualized through Grafana.
 
-**PromQL Query:**
-
-`rate(process_cpu_seconds_total[1m]) * 100`
+PromQL Query: `rate(process_cpu_seconds_total[1m]) * 100`
 
 <img width="1288" height="885" alt="image" src="https://github.com/user-attachments/assets/e5495eea-2100-4c09-a387-ba97467d5b41" />
 
