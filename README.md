@@ -568,6 +568,10 @@ kubectl port-forward svc/prometheus-service 9090:9090 -n cloudpulse
 Then open `http://localhost:9090` and verify the CloudPulse target under **Status → Targets**. The target should show `UP`.
 
 <p align="center">
+  <img width="1920" height="253" alt="image" src="https://github.com/user-attachments/assets/e1b5fac9-c6a7-49cc-a009-366507b65a2e" />
+</p>
+
+<p align="center">
   <img src="https://github.com/user-attachments/assets/ec395fd0-ab22-4bd2-a370-2767955b67b8" alt="Prometheus scraping CloudPulse application metrics" width="900">
 </p>
 
