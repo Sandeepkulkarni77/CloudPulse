@@ -204,7 +204,7 @@ Ensure the following tools and environments are available before getting started
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Tanmay-hue/CloudPulse.git
+git clone https://github.com/Sandeepkulkarni77/CloudPulse.git
 cd CloudPulse
 ```
 

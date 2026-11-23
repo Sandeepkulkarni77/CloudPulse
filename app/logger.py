@@ -1,8 +1,10 @@
 import logging
+from app.config import LOG_LEVEL
 
 logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)s | %(message)s"
+    level=getattr(logging, LOG_LEVEL, logging.INFO),
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
 )
 
 logger = logging.getLogger("cloudpulse")

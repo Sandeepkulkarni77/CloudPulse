@@ -1,33 +1,41 @@
 # Python cache
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
 
-# Virtual Environment
+# Virtual environments
+.venv/
 venv/
+env/
 
-# Git
+# Git and CI
 .git/
 .gitignore
+.github/
 
-# VS Code
+# Development tools
 .vscode/
+.idea/
 
-# Tests
+# Tests and documentation
 tests/
+README.md
 
-# Pytest Cache
-.pytest_cache/
+# Kubernetes and monitoring manifests
+k8s/
+monitoring/
 
 # Docker Compose
 docker-compose.yml
 
-# Documentation
-README.md
-
-# Environment Files
+# Environment files and secrets
 .env
+.env.*
+!.env.example
 
-# OS Files
-Thumbs.db
+# Logs and OS files
+*.log
 .DS_Store
+Thumbs.db

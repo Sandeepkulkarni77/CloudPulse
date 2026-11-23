@@ -1,14 +1,14 @@
-from prometheus_client import Counter, generate_latest
 from fastapi import Response
+from prometheus_client import Counter, generate_latest, CONTENT_TYPE_LATEST
 
 REQUEST_COUNT = Counter(
     "cloudpulse_requests_total",
-    "Total API Requests"
+    "Total number of API requests handled by CloudPulse"
 )
 
 
 def metrics():
     return Response(
-        generate_latest(),
-        media_type="text/plain"
+        content=generate_latest(),
+        headers={"Content-Type": CONTENT_TYPE_LATEST}
     )

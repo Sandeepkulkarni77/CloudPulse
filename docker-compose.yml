@@ -1,17 +1,34 @@
-version: "3.9"
+# CloudPulse Local Container Orchestration
 
 services:
-
   cloudpulse:
+    image: cloudpulse:latest
 
-    build: .
-
-    container_name: cloudpulse
+    build:
+      context: .
+      dockerfile: Dockerfile
 
     ports:
       - "8000:8000"
 
     restart: unless-stopped
+    init: true
 
-    env_file:
-      - .env
+    environment:
+      APP_NAME: ${APP_NAME:-CloudPulse}
+      APP_VERSION: ${APP_VERSION:-1.0.0}
+      ENVIRONMENT: ${ENVIRONMENT:-Development}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+
+    # Container Resource Limits
+    mem_limit: 512m
+    cpus: "0.50"
+
+    # Container Security
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
