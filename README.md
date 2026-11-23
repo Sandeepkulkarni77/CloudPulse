@@ -135,28 +135,26 @@ How the pieces fit together:
 
 ## Project Structure
 
-```text
+```
 CloudPulse/
 │
 ├── app/
 │   ├── main.py                        # FastAPI application entry point
-│   ├── config.py                      # Application configuration
-│   ├── logger.py                      # Structured logging
-│   ├── metrics.py                     # Prometheus metrics
-│   ├── models.py                      # Data models
-│   ├── database.py                    # Database layer
+│   ├── config.py                      # Application and environment configuration
+│   ├── logger.py                      # Configurable structured logging
+│   ├── metrics.py                     # Prometheus metrics and exposition
 │   └── requirements.txt               # Python dependencies
 │
 ├── tests/
 │   └── test_api.py                    # Pytest API tests
 │
 ├── k8s/
-│   ├── namespace.yaml                 # Namespace
+│   ├── namespace.yaml                 # Kubernetes namespace
 │   ├── deployment.yaml                # Application Deployment
 │   ├── service.yaml                   # Application Service
-│   ├── ingress.yaml                   # Ingress
+│   ├── ingress.yaml                   # Ingress routing
 │   ├── configmap.yaml                 # Application configuration
-│   ├── secret.yaml                    # Sensitive configuration
+│   ├── secret.yaml                    # Kubernetes Secret
 │   ├── hpa.yaml                       # Horizontal Pod Autoscaler
 │   ├── prometheus-configmap.yaml      # Prometheus configuration
 │   ├── prometheus-deployment.yaml     # Prometheus Deployment
@@ -167,21 +165,21 @@ CloudPulse/
 ├── monitoring/
 │   ├── prometheus.yml                 # Prometheus scrape configuration
 │   └── grafana/
-│       ├── datasource.yml             # Grafana data source
-│       └── dashboard.json             # Grafana dashboard
-│
-├── images/
+│       ├── datasource.yml             # Grafana data source provisioning
+│       └── dashboard.json             # Grafana monitoring dashboard
 │
 ├── .github/
 │   └── workflows/
 │       └── ci.yml                     # GitHub Actions CI/CD workflow
 │
+├── .dockerignore                      # Docker build context exclusions
+├── .gitignore                         # Git ignore rules
 ├── Dockerfile                         # Container image definition
-├── docker-compose.yml                 # Docker Compose configuration
+├── docker-compose.yml                 # Local container orchestration
 ├── pytest.ini                         # Pytest configuration
-└── README.md
-```
+└── README.md                          # Project documentation
 
+```
 ---
 
 ### Prerequisites
@@ -457,7 +455,7 @@ This workflow reduces manual steps and provides a repeatable process for buildin
 **Successful GitHub Actions run.** The workflow runs the application tests, builds the Docker image, and publishes the image to Docker Hub.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/28883184-5baa-4825-824e-4925c626e232" alt="Successful GitHub Actions CI/CD run" width="900">
+  <img width="1892" height="923" alt="image" src="https://github.com/user-attachments/assets/8b12a827-61d5-4e5f-b0ce-5354542504f0" />
 </p>
 
 <p align="center"><em>Figure 4. Successful GitHub Actions run.</em></p>
